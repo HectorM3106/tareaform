@@ -30,8 +30,8 @@ class EstudianteController extends Controller
             'carrera_id'=> 'required',
         ]);
         $estudiante = new estudiante();
-        $estudiante->name = ucwords(strtolower($request->nombre));
-        $estudiante->code = ucwords(strtoupper($request->codigo));
+        $estudiante->name = $request->nombre;
+        $estudiante->code = $request->codigo;
         $estudiante->carrera_id = $request->carrera_id;
         $estudiante->save();
         return redirect()->route('estudiante.index', $estudiante);
